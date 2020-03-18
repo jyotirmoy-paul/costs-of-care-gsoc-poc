@@ -24,4 +24,5 @@ public class HospitalModel {
     public double getEstimatedCost() {
         return estimatedCost;
     }
+
 }

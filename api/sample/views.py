@@ -11,7 +11,7 @@ class HospitalApiView(APIView):
 
         queryset = Hospitals.objects.all().filter(
             hospital_name__icontains=hospital_name,
-            procedure_name__icontains=procedure_name).order_by('estimated_cost')
+            procedure_name__icontains=procedure_name)
 
         serialized_query_field = HospitalModelSerializer(queryset, many=True)
 

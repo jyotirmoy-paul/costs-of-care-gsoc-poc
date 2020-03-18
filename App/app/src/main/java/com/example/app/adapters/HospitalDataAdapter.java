@@ -52,13 +52,25 @@ public class HospitalDataAdapter extends RecyclerView.Adapter<HospitalDataAdapte
 
         holder.textViewHospitalName.setText(model.getHospitalName());
         holder.textViewProcedureName.setText(model.getProcedureName());
-        holder.textViewEstimatedCost.setText(Double.toString(model.getEstimatedCost()));
+
+        double estimatedCost = model.getEstimatedCost();
+        if(estimatedCost == -1){
+            holder.textViewEstimatedCost.setText("$ ERX");
+        } else{
+            holder.textViewEstimatedCost.setText("$ " + estimatedCost);
+        }
+
 
     }
 
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void filterList(ArrayList<HospitalModel> filteredList){
+        list = filteredList;
+        notifyDataSetChanged();
     }
 
 }
