@@ -13,12 +13,12 @@ import com.example.app.models.HospitalModel;
 
 import java.util.ArrayList;
 
-public class HospitalDataAdapter extends RecyclerView.Adapter<HospitalDataAdapter.HospitalDataViewHolder> {
+public class HospitalModelAdapter extends RecyclerView.Adapter<HospitalModelAdapter.HospitalDataViewHolder> {
 
     ArrayList<HospitalModel> list;
 
     // constructor for this class
-    public HospitalDataAdapter(ArrayList<HospitalModel> list){
+    public HospitalModelAdapter(ArrayList<HospitalModel> list){
         this.list = list;
     }
 

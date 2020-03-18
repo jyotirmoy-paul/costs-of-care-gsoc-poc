@@ -14,34 +14,23 @@ package com.example.app.utils;
 import android.location.Location;
 
 import com.example.app.models.HospitalLocationModel;
+import com.example.app.models.LatLng;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class NearbyHospitals {
 
-    private ArrayList<HospitalLocationModel> nearbyHospitals;
-    private int withinRadius;/* parameter to find hospitals withing given radius value in meter*/
+    public static ArrayList<HospitalLocationModel> getHospitals(){
 
-    public NearbyHospitals(int withinRadius){
-        nearbyHospitals = fetchNearbyHospitals(withinRadius);
-        this.withinRadius = withinRadius;
+        /* choose between 5 to 11 hospitals at random */
+        return fetchNearbyHospitals(5 + new Random().nextInt(7));
     }
 
-    public ArrayList<HospitalLocationModel> getHospitals(){
-
-        if(hasLocationChanged()){
-            nearbyHospitals = fetchNearbyHospitals(withinRadius);
-        }
-
-        return nearbyHospitals;
-    }
-
-    private boolean hasLocationChanged(){
-        return false; /* FOR DEMONSTRATION PURPOSE, ALWAYS RETURN FALSE*/
-    }
-
-    private ArrayList<HospitalLocationModel> fetchNearbyHospitals(int radius){
+    private static ArrayList<HospitalLocationModel> fetchNearbyHospitals(int n){
         /*
         * This method actually fetches nearby hospitals based on location using Google Map Service
         * And stores them for later use
@@ -55,13 +44,24 @@ public class NearbyHospitals {
         * the list is filled by randomly chosen 20 sample hospitals, as in the backend server
         * */
 
+        List<String> l = Arrays.asList(Constants.NEARBY_HOSPITAL_NAME_LIST);
+        Collections.shuffle(l);
+
         ArrayList<HospitalLocationModel> list = new ArrayList<>();
 
-        for(int i=0; i<Constants.NEARBY_HOSPITALS.length; i++){
+        Random r = new Random();
+        double latUtil = -19.50139 + (64.85694 - 19.50139);
+        double lngUtil = -161.75583 + (-68.01197 - 161.75583);
+
+        for(int i=0; i<n; i++){
+
+            double lat = latUtil * r.nextDouble();
+            double lng = lngUtil * r.nextDouble();
+
             list.add(new HospitalLocationModel(
-                    Constants.NEARBY_HOSPITALS[i],
-                    null, /* storing the location object for future reference */
-                    new Random().nextInt(10*1000) /* distance b/w 0 - 10,000 m*/
+                    l.get(i),
+                    new LatLng(lat, lng), /* storing the location object for future reference */
+                    r.nextInt(10*1000) /* distance b/w 0 - 10,000 m*/
             ));
         }
 
