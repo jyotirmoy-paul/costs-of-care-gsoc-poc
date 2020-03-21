@@ -1,6 +1,10 @@
 # cost-of-care-gsoc-poc
 
-## Dococument
+## About POC
+The backend RESTFUL API fetches real data from [Penn Presbyterian Medical Center](https://www.pennmedicine.org/for-patients-and-visitors/patient-information/insurance-and-billing/financial-transparency/financial-transparency-for-penn-presbyterian-medical-center) and other data's are created using [Faker](https://faker.readthedocs.io/en/master/) for demo purpose
+The android app connects to the backend using an endpoint, which is described in much detail in the POC Document 
+
+## Document
 Please view the detailed explanation of the POC [here](https://github.com/jyotirmoy-paul/costs-of-care-gsoc-poc/blob/master/sample/poc.pdf)
 
 ## Demonstration
