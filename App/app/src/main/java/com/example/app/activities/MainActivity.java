@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
 
-        int[] icons = new int[]{
-                R.drawable.ic_nearby_hospitals,
-                R.drawable.ic_query
+        String[] title = new String[]{
+                "Nearby Hospitals",
+                "Search",
         };
 
-        for(int icon: icons){
-            tabLayout.addTab(tabLayout.newTab().setIcon(icon));
+        for(String t: title){
+            tabLayout.addTab(tabLayout.newTab().setText(t));
         }
 
         PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), tabLayout.getTabCount());

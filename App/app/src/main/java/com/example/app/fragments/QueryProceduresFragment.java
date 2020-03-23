@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -48,6 +49,8 @@ public class QueryProceduresFragment extends Fragment {
 
     private LinearLayout linearLayoutFilterLayout;
 
+    private boolean filterShow = true;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,10 +58,9 @@ public class QueryProceduresFragment extends Fragment {
 
         // referencing to the views
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        Button searchButton = view.findViewById(R.id.btnSearch);
+        ImageView searchButton = view.findViewById(R.id.btnSearch);
         EditText editTextProcedureName = view.findViewById(R.id.edtProcedureName);
-        Button buttonSortAscendingLocation = view.findViewById(R.id.btnSortAscendingLocation);
-        Button buttonFilter = view.findViewById(R.id.btnFilter);
+        ImageView buttonFilter = view.findViewById(R.id.btnFilter);
 
         seekBar = view.findViewById(R.id.seekBar);
         textViewMaxPrice = view.findViewById(R.id.txvMaxPrice);
@@ -98,20 +100,14 @@ public class QueryProceduresFragment extends Fragment {
         });
 
 
-        buttonSortAscendingLocation.setOnClickListener(v -> sortAscendingLocation());
 
-        buttonFilter.setOnClickListener(v -> toggleFilterView((Button) v));
+        buttonFilter.setOnClickListener(v -> toggleFilterView());
 
         return view;
     }
 
-    private void sortAscendingLocation(){
-        Toast.makeText(getContext(),
-                "This will work when fetching real location data - using latitude and longitude", Toast.LENGTH_LONG).show();
-    }
-
-    private void toggleFilterView(Button b){
-        if(Constants.BUTTON_FILTER.equals(b.getText().toString())){
+    private void toggleFilterView(){
+        if(filterShow){
             // start filtering
 
             setListenerForFilter();
@@ -119,15 +115,14 @@ public class QueryProceduresFragment extends Fragment {
             linearLayoutFilterLayout.setVisibility(View.VISIBLE);
             seekBar.setProgress(100);
 
-            b.setText(Constants.BUTTON_NO_FILTER);
         } else{
             // stop filtering
 
             linearLayoutFilterLayout.setVisibility(View.GONE);
             adapter.filterList(listOfHospitals);
 
-            b.setText(Constants.BUTTON_FILTER);
         }
+        filterShow = !filterShow;
     }
 
     private void setListenerForFilter(){

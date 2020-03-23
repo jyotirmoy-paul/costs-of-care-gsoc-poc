@@ -1,58 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    app:cardBackgroundColor="#fff"
-    android:id="@+id/parentCardView"
-    android:layout_marginEnd="10dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    app:cardElevation="5dp"
-    app:cardCornerRadius="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    android:paddingEnd="15dp"
+    android:paddingStart="15dp"
+    android:paddingTop="30dp"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:paddingEnd="15dp"
-        android:paddingStart="15dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/txvProcedureName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/andada"
+        android:gravity="start"
+        android:text="Tooth Extraction"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:textStyle="bold"
-            android:gravity="center"
-            android:id="@+id/txvProcedureName"
-            android:textSize="17sp"
-            android:textColor="#000"
-            android:text="Tooth Extraction"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/andada"
+        android:gravity="start"
+        android:id="@+id/txvHospitalName"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:text="Hospital Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:id="@+id/txvHospitalName"
-            android:textSize="15sp"
-            android:textColor="#000"
-            android:text="Hospital Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <TextView
+        android:fontFamily="@font/andada"
+        android:gravity="start"
+        android:id="@+id/txvEstimatedCost"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:text="$ 1587.69"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-        <TextView
-            android:gravity="center"
-            android:id="@+id/txvEstimatedCost"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:text="$ 1587.69"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+</LinearLayout>
 
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>

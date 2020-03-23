@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
-    app:cardBackgroundColor="#fff"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/colorAccent"
     android:id="@+id/parentCardView"
-    android:layout_marginEnd="10dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
     app:cardElevation="5dp"
     app:cardCornerRadius="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,35 +11,196 @@
     android:layout_height="wrap_content" >
 
     <LinearLayout
+        android:layout_margin="1dp"
+        android:background="@drawable/rounded_corner_white"
         android:paddingEnd="15dp"
         android:paddingStart="15dp"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:gravity="center"
-            android:id="@+id/txvHospitalName"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:text="Hospital Name"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:gravity="center"
-            android:id="@+id/txvDistance"
-            android:textSize="17sp"
-            android:textColor="#000"
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:id="@+id/imvLogo"
+                android:layout_centerVertical="true"
+                android:src="@drawable/hospital_logo"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginEnd="35dp"
+                android:layout_marginStart="5dp"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:fontFamily="@font/andada"
+                android:id="@+id/txvHospitalName"
+                android:layout_toEndOf="@id/imvLogo"
+                android:text="Aspen Valley Hospital (AVH)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_below="@id/txvHospitalName"
+                android:text="Hospital in Aspen, Colorado"
+                android:fontFamily="@font/andada"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/imvLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:padding="5dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/andada"
+                android:textSize="15sp"
+                android:text="2.9"
+                android:background="@drawable/rounded_corner_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+        <View
             android:layout_marginTop="5dp"
-            android:text="1758 m"
+            android:background="#d5d5d5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="2dp"/>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginEnd="15dp"
+                    android:id="@+id/imvSign"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/link"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+                <TextView
+                    android:fontFamily="@font/andada"
+                    android:layout_toEndOf="@id/imvSign"
+                    android:textSize="12sp"
+                    android:id="@+id/txvWebsiteLabel"
+                    android:text="Website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:fontFamily="@font/andada"
+                    android:layout_toEndOf="@id/imvSign"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:layout_below="@id/txvWebsiteLabel"
+                    android:text="https://www.aspenvalleyhospital.org"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginEnd="15dp"
+                    android:id="@+id/imvSign2"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:fontFamily="@font/andada"
+                    android:layout_toEndOf="@id/imvSign2"
+                    android:textSize="12sp"
+                    android:id="@+id/txvWebsiteLabel2"
+                    android:text="Phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:fontFamily="@font/andada"
+                    android:layout_toEndOf="@id/imvSign2"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:layout_below="@id/txvWebsiteLabel2"
+                    android:text="+1 970-925-1120"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginEnd="15dp"
+                    android:id="@+id/imvSign3"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:fontFamily="@font/andada"
+                    android:layout_toEndOf="@id/imvSign3"
+                    android:textSize="12sp"
+                    android:id="@+id/txvWebsiteLabel3"
+                    android:text="Website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:fontFamily="@font/andada"
+                    android:layout_toEndOf="@id/imvSign3"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    android:layout_below="@id/txvWebsiteLabel3"
+                    android:text="https://www.aspenvalleyhospital.org"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:textStyle="bold"
+                android:fontFamily="@font/andada"
+                android:gravity="end"
+                android:id="@+id/txvDistance"
+                android:textSize="15sp"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="10dp"
+                android:text="1.7 Kms from here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
 
         <TextView
+            android:visibility="gone"
             android:gravity="center"
             android:id="@+id/txvLatLng"
             android:textSize="12sp"

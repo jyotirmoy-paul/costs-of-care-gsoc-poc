@@ -52,7 +52,7 @@ public class HospitalLocationModelAdapter extends RecyclerView.Adapter<HospitalL
         HospitalLocationModel model = list.get(position);
 
         holder.textViewHospitalName.setText(model.getHospitalName());
-        holder.textViewDistance.setText(model.getDistance() + " m");
+        holder.textViewDistance.setText(model.getDistance()/1000.0 + " Kms from here");
 
         LatLng latLng = model.getHospitalLocation();
 
